@@ -1,0 +1,140 @@
+Core OOP Definitions
+Object-Oriented Programming (OOP):
+
+A programming paradigm (a style of building the structure and elements of computer programs) based on the concept of "objects," which can contain data (attributes/properties) and code (methods/behaviors). OOP aims to model real-world entities and their interactions.
+
+Class:
+
+A blueprint or a template for creating objects. It defines the structure and behavior that all objects of that type will possess. A class is a user-defined data type. It specifies the properties (data members) and actions (member functions) that an object created from it will have.
+
+Object:
+
+An instance of a class. It is a concrete realization of the blueprint defined by a class. An object represents a real-world entity and has a unique identity, state (values of its data members), and behavior (actions performed by its member functions).
+
+Data Member (Attribute/Property):
+
+Variables declared within a class that define the characteristics or state of an object. Each object of a class will have its own set of data members, storing its unique data.
+
+Member Function (Method/Behavior):
+
+Functions defined within a class that specify the actions or operations that objects of that class can perform. They typically operate on the object's data members.
+
+Constructor:
+
+A special member function of a class that is automatically invoked when an object of that class is created. Its primary purpose is to initialize the object's data members to a valid state. A constructor has the same name as the class and no return type.
+
+Destructor:
+
+A special member function of a class that is automatically invoked when an object is about to be destroyed (e.g., when it goes out of scope or is explicitly deleted). Its primary purpose is to clean up resources (like dynamically allocated memory) held by the object before it is removed from memory. A destructor has the same name as the class, prefixed with a tilde (~), and no return type.
+
+Access Specifiers (Public, Private, Protected):
+
+Keywords (public, private, protected) that control the visibility and accessibility of class members (data members and member functions). They define which parts of the program can access specific members of a class.
+
+public: Members are accessible from anywhere, both inside and outside the class.
+
+private: Members are only accessible from within the class itself. They are hidden from external access.
+
+protected: Members are accessible from within the class itself and from within derived classes (classes that inherit from it), but not from outside the class hierarchy.
+
+Encapsulation:
+
+The OOP principle of bundling data (attributes) and the methods (functions) that operate on that data into a single unit (a class). It also involves restricting direct access to some of an object's components (data hiding) to prevent unauthorized or accidental modification. Encapsulation protects the internal state of an object and provides a controlled interface for interacting with it.
+
+Inheritance:
+
+The OOP mechanism that allows a new class (derived class or child class) to acquire the properties (data members) and behaviors (member functions) of an existing class (base class or parent class). This promotes code reusability and establishes an "is-a" relationship between classes (e.g., "A Dog is an Animal").
+
+Single Inheritance: A derived class inherits from only one base class.
+
+Multiple Inheritance: A derived class inherits from more than one base class.
+
+Hierarchical Inheritance: Multiple derived classes inherit from a single base class.
+
+Multilevel Inheritance: A derived class acts as a base class for another derived class, forming a chain.
+
+Polymorphism:
+
+The OOP principle meaning "many forms." It refers to the ability of different objects to respond to the same message or function call in their own unique ways. In C++, it allows objects of different classes (related by inheritance) to be treated as objects of a common base class, while still invoking the appropriate overridden method for their specific type at runtime.
+
+Compile-time Polymorphism (Static Binding/Early Binding): The decision of which function to call is made at compile time. This is achieved through:
+
+Function Overloading: Defining multiple functions with the same name but different parameter lists within the same scope.
+
+Operator Overloading: Giving special meaning to existing operators when used with user-defined data types.
+
+Run-time Polymorphism (Dynamic Binding/Late Binding): The decision of which function to call is made at runtime, based on the actual type of the object. This is achieved through:
+
+Virtual Functions: Member functions in a base class that are declared with the virtual keyword and can be overridden by derived classes. When called through a base class pointer or reference, the correct derived class's version is executed.
+
+Abstract Class: A class that cannot be instantiated directly and serves only as a base class for other classes. It contains at least one pure virtual function.
+
+Pure Virtual Function: A virtual function declared by assigning 0 to it in the base class (virtual void func() = 0;). It has no implementation in the base class, and any concrete (non-abstract) derived class must provide an implementation for it.
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car{
+public:
+    string brand;
+    string modal;
+    int year;
+    
+    void displayCarInfo(){
+        std::cout<<" Brand: "<<brand<< "modal"<<modal<<"year"<<year<<endl;
+    }
+};
+int main(){
+    
+    Car car1;
+    Car car2;
+    
+    
+    car1.brand = "Toyota";
+    car1.modal = "Camry";
+    car1.year = 2020;
+    
+    car2.brand = "Honda";
+    car2.modal = "Civic";
+    car2.year = 2022;
+    
+    cout<< "Car 1 info:";
+    car1.displayCarInfo();
+    
+    cout<< "Car 2 info";
+    car2.displayCarInfo();
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
