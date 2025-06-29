@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class ATM{
+    private:
+    int balance = 1000;
+    public:
+    void withdraw(int amount){
+        if(amount <= balance){
+            balance  -= amount;
+            cout<<"Withdraw: " << amount <<endl;
+        }else {
+            cout <<"insufficeint balamnce." <<endl;
+        }
+    }
+    void checkBalance(){
+        cout<<" balance: "<<balance<<endl;
+    }
+};
+int main(){
+    ATM user1;
+    user1.withdraw(300);
+    user1.withdraw(700);
+    user1.checkBalance();
+    
+    ATM user2;
+    user2.withdraw(700);
+    user2.checkBalance();
+    
+    return 0;
+}
+
+
+// Output 
+Withdraw: 300
+Withdraw: 700
+ balance: 0
+Withdraw: 700
+ balance: 300
