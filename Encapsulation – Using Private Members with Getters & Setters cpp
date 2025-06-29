@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+class Student{
+    private:
+    string name;
+    int age;
+public:
+void setData(string studentName , int studentAge){
+    name = studentName;
+    age = studentAge;
+    }
+    void display(){
+       cout<< "name : "<<name<<endl;
+       cout<< "age : " << age<< endl;
+    }
+};
+int main(){
+    Student s1;
+    s1.setData("karthik", 19);
+    s1.display();
+    
+    Student s2;
+    s2.setData("Praveen", 21);
+    s2.display();
+    return 0;
+}
+
+// output 
+name : karthik
+age : 19
+name : Praveen
+age : 21
