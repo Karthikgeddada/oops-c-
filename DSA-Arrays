@@ -38,6 +38,38 @@ matrix[i][0] = 0;
 };
 
 
+👑56. Merge Intervals
+
+
+vector<vector<int>> merge(const vector<vector<int>>& intervals) {
+    if (intervals.empty()) return {};
+
+    vector<vector<int>> sorted = intervals;
+    sort(sorted.begin(), sorted.end()); // Sort by start time
+
+    vector<vector<int>> merged;
+    merged.push_back(sorted[0]);
+
+    for (int i = 1; i < sorted.size(); ++i) {
+        if (sorted[i][0] <= merged.back()[1]) {
+            // Overlap: merge intervals
+            merged.back()[1] = max(merged.back()[1], sorted[i][1]);
+        } else {
+            merged.push_back(sorted[i]);
+        }
+    }
+
+    return merged;
+}
+
+
+
+
+
+
+
+
+
 
 
 
