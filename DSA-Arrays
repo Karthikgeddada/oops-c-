@@ -63,14 +63,40 @@ vector<vector<int>> merge(const vector<vector<int>>& intervals) {
 }
 
 
+🔥 2105. Watering Plants II
 
+class Solution {
+public:
+    int minimumRefill(vector<int>& plants, int capacityA, int capacityB) {
+        int canA = capacityA, canB = capacityB;
+        int i = 0, j = plants.size() - 1;
+        int refillA = 0, refillB = 0;
 
+        while (i < j) {
+            if (canA < plants[i]) {
+                refillA++;
+                canA = capacityA;
+            }
+            if (canB < plants[j]) {
+                refillB++;
+                canB = capacityB;
+            }
+            canA -= plants[i];
+            canB -= plants[j];
+            i++;
+            j--;
+        }
 
+        // If there's a middle plant
+        if (i == j) {
+            if (canA < plants[i] && canB < plants[i]) {
+                refillA++; // Alice has priority
+            }
+        }
 
-
-
-
-
+        return refillA + refillB;
+    }
+};
 
 
 
