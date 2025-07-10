@@ -1,0 +1,114 @@
+🔹 transform() — Convert string to lowercase
+cpp
+Copy
+Edit
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str = "CodeForces";
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    cout << str; // Output: codeforces
+}
+🔹 sort() — Sort a vector
+cpp
+Copy
+Edit
+#include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 2, 8, 1};
+    sort(v.begin(), v.end());
+    for (int x : v) cout << x << " "; // Output: 1 2 5 8
+}
+🔹 reverse() — Reverse a string
+cpp
+Copy
+Edit
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+int main() {
+    string s = "hello";
+    reverse(s.begin(), s.end());
+    cout << s; // Output: olleh
+}
+🔹 count() — Count frequency of a value in a vector
+cpp
+Copy
+Edit
+#include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 2, 2};
+    cout << count(v.begin(), v.end(), 2); // Output: 3
+}
+🔹 find() — Find an element in a vector
+cpp
+Copy
+Edit
+#include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30};
+    auto it = find(v.begin(), v.end(), 20);
+    if (it != v.end()) {
+        cout << "Found at index: " << it - v.begin(); // Output: 1
+    } else {
+        cout << "Not found";
+    }
+}
+🔹 accumulate() — Sum of all elements
+cpp
+Copy
+Edit
+#include <numeric>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3};
+    int sum = accumulate(v.begin(), v.end(), 0);
+    cout << sum; // Output: 6
+}
+🔹 unique() — Remove adjacent duplicates
+cpp
+Copy
+Edit
+#include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 1, 2, 2, 2, 3};
+    auto it = unique(v.begin(), v.end());
+    v.resize(it - v.begin());
+    for (int x : v) cout << x << " "; // Output: 1 2 3
+}
+🔹 all_of() — Check if all elements satisfy a condition
+cpp
+Copy
+Edit
+#include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 10, 15};
+    bool allPositive = all_of(v.begin(), v.end(), [](int x){ return x > 0; });
+    cout << (allPositive ? "YES" : "NO"); // Output: YES
+}
