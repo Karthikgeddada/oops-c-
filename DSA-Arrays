@@ -119,6 +119,28 @@ public:
     }
 };
 
+Missing number in an array 
+
+#include <iostream>
+using namespace std;
+
+int findMissingNumber(int arr[], int n) {
+    int hash[n+1] = {0};  // Initialize hash array of size n+1 with 0
+
+    // Mark all present numbers in the hash array
+    for (int i = 0; i < n; i++) {
+        hash[arr[i]] = 1;
+    }
+
+    // Find the number which is missing (whose hash value is 0)
+    for (int i = 0; i <= n; i++) {
+        if (hash[i] == 0) {
+            return i;
+        }
+    }
+
+    return -1;  // If nothing is missing
+}
 
 
 
