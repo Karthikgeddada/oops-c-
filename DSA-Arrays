@@ -119,7 +119,7 @@ public:
     }
 };
 
-Missing number in an array 
+🔥Missing number in an array 
 
 #include <iostream>
 using namespace std;
@@ -143,8 +143,37 @@ int findMissingNumber(int arr[], int n) {
 }
 
 
+🔥
 
 
+#include <iostream>
+using namespace std;
+
+int findMissingNumber(int arr[], int n) {
+    int xor1 = 0, xor2 = 0;
+
+    // XOR all natural numbers from 1 to n
+    for (int i = 1; i <= n; i++) {
+        xor1 ^= i;
+    }
+
+    // XOR all elements in the array
+    for (int i = 0; i < n - 1; i++) {
+        xor2 ^= arr[i];
+    }
+
+    // XOR of the two gives the missing number
+    return xor1 ^ xor2;
+}
+
+int main() {
+    int arr[] = {1, 2, 4, 5}; // Missing number is 3
+    int n = 5; // Total numbers should be from 1 to 5
+
+    cout << "Missing Number: " << findMissingNumber(arr, n) << endl;
+
+    return 0;
+}
 
 
 
