@@ -60,3 +60,29 @@ public:
 
     }
 };
+
+
+😌1832. Check if the Sentence Is Pangram 
+
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        vector<int> store(26,0);
+
+        int count = 0;
+
+        for(char &ch  : sentence ){
+            int index = ch - 'a';
+
+        
+        if(store[index] == 0){
+            store[index]++;
+            count++;
+        }
+    }
+    if(count == 26)
+        return true;
+
+        return false;
+    }
+};
