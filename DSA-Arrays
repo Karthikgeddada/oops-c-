@@ -222,7 +222,67 @@ public:
         return s;
     }
 };
+🔥1207. Unique Number of Occurrences
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int> count;
 
+        // Count frequency of each element
+        for (int x : arr) {
+            count[x]++;
+        }
+
+        unordered_set<int> st;
+
+        // Check if any frequency is repeated
+        for (auto& it : count) {
+            int freq = it.second;
+            if (st.find(freq) != st.end()) {
+                return false;
+            }
+            st.insert(freq);
+        }
+
+        return true;
+    }
+};
+
+
+😎2225. Find Players With Zero or One Losses
+class Solution {
+public:
+    vector<vector<int>> findWinners(vector<vector<int>>& matches) {
+        unordered_map<int, int> lost_map;
+        for(int i = 0 ; i< matches.size(); i++){
+            int loser = matches[i][1];
+            lost_map[loser]++;
+        }
+        
+        vector<int> notLost;
+        vector<int> lostOnce;
+
+        for (int i = 0; i < matches.size(); i++) {
+            int winner = matches[i][0];
+            int loser = matches[i][1];
+
+            if (lost_map.find(winner) == lost_map.end()) {
+                notLost.push_back(winner);
+                lost_map[winner] = 2; // Marked to avoid duplicates
+            }
+
+            if (lost_map[loser] == 1) {
+                lostOnce.push_back(loser);
+                lost_map[loser] = 2; // Marked to avoid duplicates
+            }
+        }
+
+        sort(begin(notLost), end(notLost));
+        sort(begin(lostOnce), end(lostOnce));
+
+        return {notLost, lostOnce};
+    }
+};
 
 
 
