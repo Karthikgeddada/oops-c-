@@ -112,3 +112,104 @@ int main() {
     bool allPositive = all_of(v.begin(), v.end(), [](int x){ return x > 0; });
     cout << (allPositive ? "YES" : "NO"); // Output: YES
 }
+🔥#include <iostream>
+using namespace std;
+
+/* 1. Check whether a number is even or odd */
+void checkEvenOdd() {
+    int num;
+    cin >> num;
+    if (num % 2 == 0)
+        cout << "Even\n";
+    else
+        cout << "Odd\n";
+}
+
+/* 2. Factorial using loop */
+void factorial() {
+    int n;
+    cin >> n;
+    long long fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact = fact * i;
+    }
+    cout << "Factorial: " << fact << endl;
+}
+
+/* 3. Check if a number is prime */
+void checkPrime() {
+    int n;
+    cin >> n;
+    bool isPrime = true;
+
+    if (n <= 1)
+        isPrime = false;
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if (isPrime)
+        cout << "Prime\n";
+    else
+        cout << "Not Prime\n";
+}
+
+/* 4. Fibonacci series up to n terms */
+void fibonacci() {
+    int n;
+    cin >> n;
+    int a = 0, b = 1;
+    cout << a << " " << b << " ";
+    for (int i = 2; i < n; i++) {
+        int c = a + b;
+        cout << c << " ";
+        a = b;
+        b = c;
+    }
+    cout << endl;
+}
+
+/* 5. Reverse a given integer number */
+void reverseNumber() {
+    int n, rev = 0;
+    cin >> n;
+    while (n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    cout << "Reversed number: " << rev << endl;
+}
+
+/* 6. Swap two numbers */
+void swapNumbers() {
+    int a, b;
+    cin >> a >> b;
+    cout << "Before swap: a = " << a << ", b = " << b << endl;
+    int temp = a;
+    a = b;
+    b = temp;
+    cout << "After swap: a = " << a << ", b = " << b << endl;
+}
+
+/* 7. Print name and enrollment number */
+void printInfo() {
+    cout << "Name: Geddada Karthik\n";
+    cout << "Enrollment No: E23CSEU1877\n"; // Replace with your actual number
+}
+
+int main() {
+    // Call any function here one by one to test
+    checkEvenOdd();
+    factorial();
+    checkPrime();
+    fibonacci();
+    reverseNumber();
+    swapNumbers();
+    printInfo();
+
+    return 0;
+}
