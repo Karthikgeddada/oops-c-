@@ -1,3 +1,41 @@
+🔥Longest Substring Without Repeating Characters#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = s.size();
+        vector<int> hash(256, -1); // store last seen index of characters
+
+        int l = 0, r = 0, maxlen = 0;
+
+        while (r < n) {
+            if (hash[s[r]] != -1) { // character seen before
+                if (l <= hash[s[r]]) {
+                    l = hash[s[r]] + 1; // move left pointer
+                }
+            }
+
+            int len = r - l + 1; // current window length
+            maxlen = max(maxlen, len);
+
+            hash[s[r]] = r; // update last seen index
+            r++;
+        }
+        return maxlen;
+    }
+};
+
+int main() {
+    Solution sol;
+    string s;
+    cout << "Enter string: ";
+    cin >> s;
+    cout << "Longest substring without repeating characters = "
+         << sol.lengthOfLongestSubstring(s) << endl;
+    return 0;
+}
+
 //73. Set Matrix Zeroes
 
 class Solution {
